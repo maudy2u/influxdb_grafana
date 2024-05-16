@@ -8,7 +8,7 @@ docker compose for InfluxDB, Grafana and Telegraf
 3. Save the edits
 4. Run `docker-compose up`
 
-Caveat: depending on version of docker-compose the following subdirectories can need to be created: 
+**Caveat**: depending on version of docker-compose the following subdirectories can need to be created: 
 `config`, `data, `gdata`
 
 ``` 
