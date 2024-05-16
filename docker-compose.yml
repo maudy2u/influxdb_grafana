@@ -1,0 +1,62 @@
+version: '3'                                                                                                                                                                                                                    
+
+services:                                                                                                                                                                                                                       
+  influxdb:                                                                                                                                                                                                                     
+    image: influxdb                                                                                                                                                                                                             
+    container_name: influxdb                                                                                                                                                                                                
+    restart: unless-stopped
+    ports:                                                                                                                                                                                                                      
+      - ${INFLUXDB_PORT}:8086                                                                                                                                                                                                             
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=${DOCKER_INFLUXDB_INIT_USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${DOCKER_INFLUXDB_INIT_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${DOCKER_INFLUXDB_INIT_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
+    # run "id -u" at command line, then uncomment next line 
+    user: ${USER_ID}
+    volumes:                                                                                                                                                                                                                    
+      - ./data:/var/lib/influxdb2:rw                                                                                                                                                                                        
+      - ./config:/etc/influxdb2:rw                                                                                                                                                                                              
+                                                        
+  grafana:
+    image: grafana/grafana-enterprise                                                                                                                                                                                                      
+    container_name: grafana                                                                                                                                                                                                     
+    restart: unless-stopped
+    depends_on:                                                                                                                                                                                                                 
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GF_SECURITY_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GF_SECURITY_ADMIN_PASSWORD}
+      - GF_SECURITY_ADMIN_EMAIL=${GF_SECURITY_ADMIN_EMAIL}
+      - INFLUXDB_HOST=${INFLUXDB_IP}
+      - INFLUXDB_PORT=${INFLUXDB_PORT}
+      - INFLUXDB_ORG=${DOCKER_INFLUXDB_INIT_ORG}
+      - INFLUXDB_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
+      - INFLUXDB_DEFAULT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
+    ports:                                                                                                                                                                                                                      
+      - ${GRAFANA_PORT}:3000                                                                                                                                                                                                             
+    # run "id -u" at command line, then uncomment next line 
+    user: ${USER_ID}
+    volumes:                                                                                                                                                                                                                    
+      - ./gdata:/var/lib/grafana:rw
+      - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+    
+  telegraf:
+    image: telegraf
+    restart: unless-stopped
+    depends_on:
+      - influxdb
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=${DOCKER_INFLUXDB_INIT_USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${DOCKER_INFLUXDB_INIT_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${DOCKER_INFLUXDB_INIT_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
+    volumes:
+      # Mount for telegraf config
+      - ./mytelegraf.conf:/etc/telegraf/telegraf.conf:ro
+
+
