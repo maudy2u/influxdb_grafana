@@ -6,7 +6,10 @@ docker compose for InfluxDB, Grafana and Telegraf
 1. Create the .ENV with a text editor, and save it in the same location as the other three files
 2. Change the values with the "<...>" to  your needs
 3. Save the edits
-4. Run `docker-compose up` 
+4. Run `docker-compose up`
+
+Caveat: depending on version of docker-compose the following subdirectories can need to be created: 
+`config`, `data, `gdata`
 
 ``` 
 # INFLUXDB2 INIT
