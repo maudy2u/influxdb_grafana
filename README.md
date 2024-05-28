@@ -15,7 +15,7 @@ Put the files `docker-compose.yml`, `datasources.yml`, and `mytelegraf.conf` all
 4. Run `docker-compose up`
 
 **Caveat**: depending on version of docker-compose the following subdirectories can need to be created: 
-`config`, `data, `gdata`
+`config`, `data`, `gdata`
 
 ``` 
 # INFLUXDB2 INIT
