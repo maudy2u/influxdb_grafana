@@ -2,7 +2,7 @@
 docker compose for InfluxDB, Grafana and Telegraf
 
 The intent of the respository is to assist Hubitat users with the `InfluxDB Logger` App by using docker-compose to easily stand up an InfluxDB and Grafana environment.
-Put the files `docker-compose.yml`, `datasources.yml`, and `mytelegraf.conf` all into the same directory and then creating the `.en` file below the result is:
+Put the files `docker-compose.yml`, `datasources.yml`, and `mytelegraf.conf` all into the same directory and then creating the `.env` file below the result is:
 - InfluxDB will have a userid and password to log in, a default bucket, and known token
 - Grafana will have a userid and password to log in, and is default datasource will be InfluxDB using FLux query langauge via the Token, and default bucket.
 - `InfluxDB Logger` can then be configured to point to the InfluxDB using the IP:PORT, default bucket, and token
