@@ -7,7 +7,7 @@ Put the files `docker-compose.yml`, `datasources.yml`, and `mytelegraf.conf` all
 - Grafana will have a userid and password to log in, and is default datasource will be InfluxDB using FLux query langauge via the Token, and default bucket.
 - `InfluxDB Logger` can then be configured to point to the InfluxDB using the IP:PORT, default bucket, and token
 
-## .ENV 
+## .env 
 
 1. Create the .ENV with a text editor, and save it in the same location as the other three files
 2. Change the values with the "<...>" to  your needs
