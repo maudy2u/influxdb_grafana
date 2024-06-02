@@ -43,7 +43,7 @@ GRAFANA_PORT=<YOUR DESIRED PORT FOR GRAFANA>
 # GRAFANA PLUGIN
 # ADD YOUR PLUGINS HERE as a single line using ", " to separate
 # e.g. 
-# GF_PLUGINS=grafana-piechart-panel, https://github.com/yesoreyeram/yesoreyeram-boomtable-panel/releases/download/v1.5.0-alpha.3/yesoreyeram-boomtable-panel-1.5.0-alpha.3.zip, yesoreyeram-boomtable-panel, fetzerch-sunandmoon-datasource, simpod-json-datasource
+GF_PLUGINS=grafana-piechart-panel, https://github.com/yesoreyeram/yesoreyeram-boomtable-panel/releases/download/v1.5.0-alpha.3/yesoreyeram-boomtable-panel-1.5.0-alpha.3.zip, yesoreyeram-boomtable-panel, fetzerch-sunandmoon-datasource, simpod-json-datasource
 
 
 # Attempt using typical first user: 1000
