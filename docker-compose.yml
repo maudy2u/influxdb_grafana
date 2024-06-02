@@ -35,6 +35,12 @@ services:
       - INFLUXDB_ORG=${DOCKER_INFLUXDB_INIT_ORG}
       - INFLUXDB_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
       - INFLUXDB_DEFAULT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
+      # PLUGIN SUPPORT TESTING
+      - GF_INSTALL_PLUGINS=${GF_PLUGINS}
+      - GF_ANALYTICS_CHECK_FOR_UPDATES=false
+      - GF_ANALYTICS_REPORTING_ENABLED=false
+      - GF_PANELS_DISABLE_SANITIZE_HTML=true
+
     ports:                                                                                                                                                                                                                      
       - ${GRAFANA_PORT}:3000                                                                                                                                                                                                             
     # run "id -u" at command line, then uncomment next line 
