@@ -39,6 +39,13 @@ GF_SECURITY_ADMIN_EMAIL=<ENTER YOUR EMAIL FOR GRAFANA>
 # GRAFANA default is 3000, choose what works for you
 GRAFANA_PORT=<YOUR DESIRED PORT FOR GRAFANA>
 
+
+# GRAFANA PLUGIN
+# ADD YOUR PLUGINS HERE as a single line using ", " to separate
+# e.g. 
+# GF_PLUGINS=grafana-piechart-panel, https://github.com/yesoreyeram/yesoreyeram-boomtable-panel/releases/download/v1.5.0-alpha.3/yesoreyeram-boomtable-panel-1.5.0-alpha.3.zip, yesoreyeram-boomtable-panel, fetzerch-sunandmoon-datasource, simpod-json-datasource
+
+
 # Attempt using typical first user: 1000
 # id -u can provide correct ID, if it fails directory creation
 USER_ID=<YOUR DESIRED USER IF FOR LINUX>
