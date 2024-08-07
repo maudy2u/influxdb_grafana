@@ -12,3 +12,13 @@ datasources:
       tlsSkipVerify: true
     secureJsonData:
       token: ${INFLUXDB_TOKEN}
+
+  - name: InfluxDB_QL
+    type: influxdb
+    access: proxy
+    url: http://${INFLUXDB_HOST}:${INFLUXDB_PORT}
+    jsonData:
+      dbName: ${INFLUXDB_DEFAULT_BUCKET}
+      httpHeaderName1: 'Authorization'
+    secureJsonData:
+      httpHeaderValue1: 'Token ${INFLUXDB_TOKEN}'
