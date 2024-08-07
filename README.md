@@ -52,6 +52,4 @@ GF_PLUGINS=grafana-piechart-panel, https://github.com/yesoreyeram/yesoreyeram-bo
 # id -u can provide correct ID, if it fails directory creation
 USER_ID=<YOUR DESIRED USER IF FOR LINUX>
 
-# TELGRAF CONF
-# REF: https://raw.githubusercontent.com/InfluxCommunity/InfluxDBv2_Telegraf_Docker/main/telegraf/mytelegraf.conf
 ``` 
