@@ -35,7 +35,7 @@ services:
       - INFLUXDB_ORG=${DOCKER_INFLUXDB_INIT_ORG}
       - INFLUXDB_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
       - INFLUXDB_DEFAULT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
-      # PLUGIN SUPPORT TESTING
+      # some solar info plugs
       - GF_INSTALL_PLUGINS=${GF_PLUGINS}
       - GF_ANALYTICS_CHECK_FOR_UPDATES=false
       - GF_ANALYTICS_REPORTING_ENABLED=false
@@ -49,20 +49,20 @@ services:
       - ./gdata:/var/lib/grafana:rw
       - ./datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
     
-  telegraf:
-    image: telegraf
-    restart: unless-stopped
-    depends_on:
-      - influxdb
-    environment:
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=${DOCKER_INFLUXDB_INIT_USERNAME}
-      - DOCKER_INFLUXDB_INIT_PASSWORD=${DOCKER_INFLUXDB_INIT_PASSWORD}
-      - DOCKER_INFLUXDB_INIT_ORG=${DOCKER_INFLUXDB_INIT_ORG}
-      - DOCKER_INFLUXDB_INIT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
-    volumes:
-      # Mount for telegraf config
-      - ./mytelegraf.conf:/etc/telegraf/telegraf.conf:ro
-
-
+  weather411:
+      image: jasonacox/weather411:0.2.3
+      container_name: weather411
+      hostname: weather411
+      restart: unless-stopped
+      user: "${PWD_USER:-1000:1000}"
+      volumes:
+          - type: bind
+            source: ./weather
+            target: /var/lib/weather
+            read_only: true
+      ports:
+          - "${WEATHER411_PORTS:-8676:8676}"
+      environment:
+          - WEATHERCONF=/var/lib/weather/weather411.conf
+      depends_on:
+          - influxdb
