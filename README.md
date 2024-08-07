@@ -16,7 +16,7 @@ Put the files `docker-compose.yml`, `datasources.yml`, and `mytelegraf.conf` all
 
 4. Ensure the above directories have same access user and the docker user identified with `id -u` per the docker-cmpose.yml notes
    - e.g. can need to chown -R 1000:1000 .  in the docker-compose folder, where 1000 is the id returned by `id -u` and used in `.env` as well.
-   - 
+     
 5. You will need to manual edit the weather.weather411.conf file... if you plan to use Weather 411
 6. Run `docker compose up` or `docker-compose up`, depending on verison
 
