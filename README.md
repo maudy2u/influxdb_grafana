@@ -9,13 +9,15 @@ Put the files `docker-compose.yml`, `datasources.yml`, and `mytelegraf.conf` all
 
 ## `.env` 
 
-1. Create the `.env` with a text editor, and save it in the same location as the other three files
-2. Change the values with the "<...>" to  your needs
-3. Save the edits
-4. Run `docker-compose up`
+1. Change the values with the "<...>" to  your needs
+2. Save the edits
+3. Run `docker compose up` or `docker-compose up`, depending on verison
 
 **Caveat**: depending on version of docker-compose the following subdirectories can need to be created: 
 `config`, `data`, `gdata`
+
+4. Ensure the above directories have same access user and the docker user identified with `id -u` per the docker-cmpose.yml notes
+   - e.g. can need to chown -R 1000:1000 .  in the docker-compose folder, where 1000 is the id returned by `id -u` and used in `.env` as well.
 
 ``` 
 # INFLUXDB2 INIT
