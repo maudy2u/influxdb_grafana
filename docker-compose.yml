@@ -66,3 +66,27 @@ services:
           - WEATHERCONF=/var/lib/weather/weather411.conf
       depends_on:
           - influxdb
+
+  telegraf:
+    image: telegraf
+    restart: unless-stopped
+    depends_on:
+      - influxdb
+    environment:
+    #  - DOCKER_INFLUXDB_INIT_MODE=setup
+    #  - DOCKER_INFLUXDB_INIT_USERNAME=${DOCKER_INFLUXDB_INIT_USERNAME}
+    #  - DOCKER_INFLUXDB_INIT_PASSWORD=${DOCKER_INFLUXDB_INIT_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${DOCKER_INFLUXDB_INIT_ORG}
+    #  - DOCKER_INFLUXDB_INIT_BUCKET=${DOCKER_INFLUXDB_INIT_BUCKET}
+      - DOCKER_INFLUXDB_INIT_BUCKET=SNMP_2
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}
+    volumes:
+      # Mount for telegraf config
+      - ./mytelegraf.conf:/etc/telegraf/telegraf.conf:ro
+      # Get MIBS: https://stangneth.com/2021/07/15/grafana-influxdb-telegraf-mit-docker-compose/#Telegraf_is_not_detecting_SNMP_Mibs_correctly
+      # e.g. git clone https://github.com/librenms/librenms.git
+      # cd /mibs/librenms/mibs
+      # cp . ./mibs
+      # Needs to be retrieved for this to work
+      - ./mibs:/usr/share/snmp/mibs:rw
+

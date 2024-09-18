@@ -1,0 +1,2460 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_INFLUXDB",
+      "label": "influxdb",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "influxdb",
+      "pluginName": "InfluxDB"
+    },
+    {
+      "name": "DS_EXPRESSION",
+      "label": "Expression",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "__expr__"
+    },
+    {
+      "name": "DS_INFLUXDB-FOR-LIBRARY-PANEL",
+      "label": "influxdb",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "influxdb",
+      "pluginName": "InfluxDB",
+      "usage": {
+        "libraryPanels": [
+          {
+            "name": "% Grid Usage",
+            "uid": "cdx6ji1owi680f"
+          }
+        ]
+      }
+    }
+  ],
+  "__elements": {
+    "bdx6j8blfbu2od": {
+      "name": "Energy Usage",
+      "uid": "bdx6j8blfbu2od",
+      "kind": 1,
+      "model": {
+        "datasource": {
+          "type": "datasource",
+          "uid": "-- Mixed --"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": true,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 30,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "links": [],
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "watt"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "consumption_energy_now value {deviceId=\"6\", deviceName=\"IQ Gateway\", hubName=\"Jarvis\"}"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "semi-dark-orange",
+                    "mode": "fixed"
+                  }
+                },
+                {
+                  "id": "displayName",
+                  "value": "Consumption"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "currentPower value {deviceId=\"6\", deviceName=\"IQ Gateway\", hubName=\"Jarvis\"}"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "green",
+                    "mode": "fixed"
+                  }
+                },
+                {
+                  "id": "displayName",
+                  "value": "Power"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Sun altitude"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "rgb(192, 192, 192)",
+                    "mode": "fixed"
+                  }
+                },
+                {
+                  "id": "custom.hideFrom",
+                  "value": {
+                    "legend": true,
+                    "tooltip": true,
+                    "viz": false
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Sun altitude"
+              },
+              "properties": [
+                {
+                  "id": "custom.fillOpacity",
+                  "value": 10
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "min",
+                  "value": -101
+                },
+                {
+                  "id": "max",
+                  "value": 101
+                },
+                {
+                  "id": "custom.lineStyle",
+                  "value": {
+                    "dash": [
+                      1,
+                      5
+                    ],
+                    "fill": "dash"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "weatherTemperature value {deviceId=\"56\", deviceName=\"EcobeeTherm: ecobee\", hubName=\"Jarvis\", unit=\"C\"}"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "#FF9830",
+                    "mode": "fixed"
+                  }
+                },
+                {
+                  "id": "custom.fillOpacity",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "celsius"
+                },
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "min",
+                  "value": -45
+                },
+                {
+                  "id": "max",
+                  "value": 45
+                },
+                {
+                  "id": "custom.lineStyle",
+                  "value": {
+                    "dash": [
+                      6,
+                      2
+                    ],
+                    "fill": "dash"
+                  }
+                },
+                {
+                  "id": "custom.axisPlacement",
+                  "value": "right"
+                },
+                {
+                  "id": "displayName",
+                  "value": "Temperature"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "cloudiness value {deviceId=\"102\", deviceName=\"OpenWeather\", hubName=\"Jarvis\", unit=\"%\"}"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "#F2CC0C",
+                    "mode": "fixed"
+                  }
+                },
+                {
+                  "id": "custom.fillOpacity",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "min",
+                  "value": -101
+                },
+                {
+                  "id": "max",
+                  "value": 101
+                },
+                {
+                  "id": "custom.lineStyle",
+                  "value": {
+                    "dash": [
+                      5,
+                      10
+                    ],
+                    "fill": "dash"
+                  }
+                },
+                {
+                  "id": "custom.hideFrom",
+                  "value": {
+                    "legend": false,
+                    "tooltip": true,
+                    "viz": false
+                  }
+                },
+                {
+                  "id": "displayName",
+                  "value": "Cloudiness"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byFrameRefID",
+                "options": "to_grid"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "fixed"
+                  }
+                },
+                {
+                  "id": "displayName",
+                  "value": "To grid"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byFrameRefID",
+                "options": "from_grid"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "From grid"
+                },
+                {
+                  "id": "custom.lineInterpolation",
+                  "value": "smooth"
+                },
+                {
+                  "id": "custom.lineWidth",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byFrameRefID",
+                "options": "outside_humid"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Humidity"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "super-light-purple",
+                    "mode": "fixed"
+                  }
+                },
+                {
+                  "id": "custom.fillOpacity",
+                  "value": 0
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                },
+                {
+                  "id": "max",
+                  "value": 101
+                },
+                {
+                  "id": "min",
+                  "value": -101
+                },
+                {
+                  "id": "decimals",
+                  "value": 0
+                },
+                {
+                  "id": "custom.lineStyle",
+                  "value": {
+                    "dash": [
+                      10,
+                      10
+                    ],
+                    "fill": "dash"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "interval": "",
+        "libraryPanel": {
+          "name": "Energy Usage",
+          "uid": "bdx6j8blfbu2od"
+        },
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "multi",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "9.1.2",
+        "targets": [
+          {
+            "alias": "Home Usage",
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              }
+            ],
+            "measurement": "http",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> filter(fn: (r) => r[\"_field\"] == \"value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"power\")\n",
+            "rawQuery": false,
+            "refId": "power",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "home"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": []
+          },
+          {
+            "alias": "Solar Energy",
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              }
+            ],
+            "hide": false,
+            "measurement": "http",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"cloudiness\")\n  |> filter(fn: (r) => r[\"_field\"] == \"value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"cloudiness\")\n",
+            "refId": "clouds",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "solar"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": []
+          },
+          {
+            "alias": "Grid Usage",
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "groupBy": [
+              {
+                "params": [
+                  "5m"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "hide": false,
+            "measurement": "http",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+            "rawQuery": true,
+            "refId": "from_grid",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "site_instant_power"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "tz": "${tz:text}"
+          },
+          {
+            "datasource": {
+              "type": "fetzerch-sunandmoon-datasource",
+              "uid": "adn7j0jtzlzwgf"
+            },
+            "refId": "sun",
+            "target": [
+              "sun_altitude"
+            ]
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "hide": false,
+            "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: -r._value }))\n  |> yield( name: \"consumption\")",
+            "refId": "consumption"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "hide": false,
+            "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value  })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> map(fn: (r) => ({ _time: r._time, _value: -r._value }))\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+            "refId": "to_grid"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "hide": false,
+            "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"weatherTemperature\")\n  |> filter(fn: (r) => r[\"_field\"] == \"value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"outside_temp\")\n",
+            "refId": "temp"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "hide": false,
+            "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"weatherHumidity\")\n  |> filter(fn: (r) => r[\"_field\"] == \"value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"outside_humid\")\n",
+            "refId": "outside_humid"
+          }
+        ],
+        "title": "Energy Usage",
+        "transparent": true,
+        "type": "timeseries"
+      }
+    },
+    "cdx6ji1owi680f": {
+      "name": "% Grid Usage",
+      "uid": "cdx6ji1owi680f",
+      "kind": 1,
+      "model": {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "${DS_INFLUXDB-FOR-LIBRARY-PANEL}"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "decimals": 1,
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "purple",
+                  "value": null
+                }
+              ]
+            },
+            "unit": "watth"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byFrameRefID",
+                "options": "C"
+              },
+              "properties": [
+                {
+                  "id": "unit",
+                  "value": "percentunit"
+                }
+              ]
+            }
+          ]
+        },
+        "interval": "",
+        "libraryPanel": {
+          "name": "% Grid Usage",
+          "uid": "cdx6ji1owi680f"
+        },
+        "maxDataPoints": 100,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "sum"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "text": {
+            "valueSize": 30
+          },
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "10.4.2",
+        "targets": [
+          {
+            "alias": "",
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "groupBy": [],
+            "hide": true,
+            "measurement": "http",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+            "rawQuery": true,
+            "refId": "from_grid",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "from_grid"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "integral"
+                },
+                {
+                  "params": [
+                    " / 1000 / 3600"
+                  ],
+                  "type": "math"
+                }
+              ]
+            ],
+            "tags": []
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "hide": true,
+            "query": "// Query for currentPower\n//power = from(bucket: \"hubitat\")\nfrom(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n  |> yield(name: \"solar\")",
+            "refId": "power"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "hide": true,
+            "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 }))\n  |> yield(name: \"consumption\")",
+            "refId": "consumption"
+          },
+          {
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "from_grid",
+            "hide": true,
+            "reducer": "sum",
+            "refId": "A",
+            "type": "reduce"
+          },
+          {
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "consumption",
+            "hide": true,
+            "reducer": "sum",
+            "refId": "B",
+            "type": "reduce"
+          },
+          {
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$A / $B",
+            "hide": false,
+            "refId": "C",
+            "type": "math"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "ddluaoihvp3b4d"
+            },
+            "hide": true,
+            "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+            "refId": "to_grid"
+          }
+        ],
+        "title": "% Grid Usage",
+        "transparent": true,
+        "type": "stat"
+      }
+    }
+  },
+  "__requires": [
+    {
+      "type": "datasource",
+      "id": "__expr__",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.4.2"
+    },
+    {
+      "type": "datasource",
+      "id": "influxdb",
+      "name": "InfluxDB",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watth"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "from_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "power"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Solar"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "consumption"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Consumption"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "to_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "To Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net To Grid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "interval": "",
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 30
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "http",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+          "rawQuery": true,
+          "refId": "from_grid",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "from_grid"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "integral"
+              },
+              {
+                "params": [
+                  " / 1000 / 3600"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "// Query for currentPower\n//power = from(bucket: \"hubitat\")\nfrom(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n  |> yield(name: \"solar\")",
+          "refId": "power"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 }))\n  |> yield(name: \"consumption\")",
+          "refId": "consumption"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+          "refId": "to_grid"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "from_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "A",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "to_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "B",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "$A-$B",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        }
+      ],
+      "title": "Imported",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watth"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "from_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "power"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Solar"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "consumption"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Consumption"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "to_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "To Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net To Grid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 0
+      },
+      "id": 7,
+      "interval": "",
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 30
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [],
+          "hide": true,
+          "measurement": "http",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+          "rawQuery": true,
+          "refId": "from_grid",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "from_grid"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "integral"
+              },
+              {
+                "params": [
+                  " / 1000 / 3600"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "// Query for currentPower\n//power = from(bucket: \"hubitat\")\nfrom(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n  |> yield(name: \"solar\")",
+          "refId": "power"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 }))\n  |> yield(name: \"consumption\")",
+          "refId": "consumption"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+          "refId": "to_grid"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "from_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "A",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "to_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "B",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "$A-$B",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        }
+      ],
+      "title": "Exported",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watth"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "from_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "power"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Solar"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "consumption"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Consumption"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "to_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "To Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net To Grid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 6,
+        "y": 0
+      },
+      "id": 8,
+      "interval": "",
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 30
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [],
+          "hide": true,
+          "measurement": "http",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+          "rawQuery": true,
+          "refId": "from_grid",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "from_grid"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "integral"
+              },
+              {
+                "params": [
+                  " / 1000 / 3600"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "// Query for currentPower\n//power = from(bucket: \"hubitat\")\nfrom(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n  |> yield(name: \"solar\")",
+          "refId": "power"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 }))\n  |> yield(name: \"consumption\")",
+          "refId": "consumption"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+          "refId": "to_grid"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "from_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "A",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "to_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "B",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "$A-$B",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        }
+      ],
+      "title": "Solar",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watth"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "from_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "power"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Solar"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "consumption"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Consumption"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "to_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "To Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net To Grid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 9,
+        "y": 0
+      },
+      "id": 9,
+      "interval": "",
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 30
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [],
+          "hide": true,
+          "measurement": "http",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+          "rawQuery": true,
+          "refId": "from_grid",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "from_grid"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "integral"
+              },
+              {
+                "params": [
+                  " / 1000 / 3600"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "// Query for currentPower\n//power = from(bucket: \"hubitat\")\nfrom(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n  |> yield(name: \"solar\")",
+          "refId": "power"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 }))\n  |> yield(name: \"consumption\")",
+          "refId": "consumption"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+          "refId": "to_grid"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "from_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "A",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "to_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "B",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "$A-$B",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        }
+      ],
+      "title": "Used",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          },
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watth"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "from_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "power"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Solar"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "consumption"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Consumption"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "to_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "To Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net To Grid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 12,
+        "y": 0
+      },
+      "id": 10,
+      "interval": "",
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {
+          "valueSize": 30
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [],
+          "hide": true,
+          "measurement": "http",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+          "rawQuery": true,
+          "refId": "from_grid",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "from_grid"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "integral"
+              },
+              {
+                "params": [
+                  " / 1000 / 3600"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "// Query for currentPower\n//power = from(bucket: \"hubitat\")\nfrom(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n  |> yield(name: \"solar\")",
+          "refId": "power"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 }))\n  |> yield(name: \"consumption\")",
+          "refId": "consumption"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+          "refId": "to_grid"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "from_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "A",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "to_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "B",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "$A-$B",
+          "hide": false,
+          "refId": "C",
+          "type": "math"
+        }
+      ],
+      "title": "Net",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 4,
+      "libraryPanel": {
+        "uid": "bdx6j8blfbu2od",
+        "name": "Energy Usage"
+      }
+    },
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 13
+      },
+      "id": 2,
+      "libraryPanel": {
+        "uid": "cdx6ji1owi680f",
+        "name": "% Grid Usage"
+      }
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "${DS_INFLUXDB}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "decimals": 1,
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "unit": "watth"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watth"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "from_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "power"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Solar"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "consumption"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Consumption"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "to_grid"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "To Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net From Grid"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "C"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Net To Grid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 4,
+        "y": 13
+      },
+      "id": 11,
+      "interval": "",
+      "maxDataPoints": 100,
+      "options": {
+        "displayLabels": [
+          "name",
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true,
+          "values": [
+            "percent"
+          ]
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [
+            "sum"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.4.2",
+      "targets": [
+        {
+          "alias": "",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "http",
+          "orderByTime": "ASC",
+          "policy": "autogen",
+          "query": "// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n  |> map(fn: (r) => ({ _time: r._time, _value: if r._value_consumption - r._value_power > 0.0 then r._value_consumption - r._value_power else 0.0 }))\n\n  |> yield(name: \"from_grid\")\n",
+          "rawQuery": true,
+          "refId": "from_grid",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "from_grid"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "integral"
+              },
+              {
+                "params": [
+                  " / 1000 / 3600"
+                ],
+                "type": "math"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": false,
+          "query": "// Query for currentPower\n//power = from(bucket: \"hubitat\")\nfrom(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n  |> yield(name: \"solar\")",
+          "refId": "power"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 }))\n  |> yield(name: \"consumption\")",
+          "refId": "consumption"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "${DS_INFLUXDB}"
+          },
+          "hide": true,
+          "query": "import \"influxdata/influxdb/schema\"\n\n// Query for consumption_energy_now\nconsumption = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"consumption_energy_now\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Query for currentPower\npower = from(bucket: \"hubitat\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"currentPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> map(fn: (r) => ({ r with _value: r._value / 4.0 })) // Adjusting if needed\n\n// Join the two streams\njoined = join(\n  tables: {consumption: consumption, power: power},\n  on: [\"_time\"]\n)\n  |> map(fn: (r) => ({ _time: r._time, _value: r._value_power - r._value_consumption }))\n//  |> map(fn: (r) => ({ _time: r._time, _value: r._value_consumption  -r._value_power }))\n\n// Filter to keep only positive values\npositive_values = joined\n  |> filter(fn: (r) => r._value > 0)\n\n// Sum the positive values over the specified window period\npositive_sum = positive_values\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n\n// Keep the relevant columns and yield the result\npositive_sum\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> yield(name: \"to_grid\")\n",
+          "refId": "to_grid"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "from_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "A",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "to_grid",
+          "hide": true,
+          "reducer": "sum",
+          "refId": "B",
+          "type": "reduce"
+        },
+        {
+          "datasource": {
+            "type": "__expr__",
+            "uid": "${DS_EXPRESSION}"
+          },
+          "expression": "$A-$B",
+          "hide": true,
+          "refId": "C",
+          "type": "math"
+        }
+      ],
+      "title": "Grid Dependence",
+      "transparent": true,
+      "type": "piechart"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now/d",
+    "to": "now/d"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "New dashboard",
+  "uid": "adx6jpz46bk00f",
+  "version": 6,
+  "weekStart": ""
+}
